@@ -43,7 +43,23 @@ const AddProblems = (props) => {
 
 
     const onSubmit = (problems) => {
-        postProblems(problems).then(res => {
+
+        const coursesIds = problems.courses.map( x => x.value)
+        const modulesIds = problems.modules.map( x => x.value)
+
+        const json = {
+            name: problems.name,
+            description: problems.description,
+            input: problems.input,
+            expectedOutput: problems.expectedOutput,
+            id_house: problems.id_house,
+            id_difficulty: problems.id_difficulty,
+            courses: coursesIds,
+            modules: modulesIds
+        }
+
+
+        postProblems(json).then(res => {
             alert("Sucesso!!!")
         }).catch(error => {
             alert(error)
@@ -106,7 +122,7 @@ const AddProblems = (props) => {
                         cselect={"Selecione o evento"}
                         ctrl={control}
                         values={eventList}
-                        defaultList={false}
+                        defaultList={true}
                     />
                 </Form.Group>
 
@@ -117,7 +133,7 @@ const AddProblems = (props) => {
                         cselect={"Selecione a dificuldade"}
                         ctrl={control}
                         values={difficultyList}
-                        defaultList={false}
+                        defaultList={true}
                     />
                 </Form.Group>
 
@@ -128,7 +144,7 @@ const AddProblems = (props) => {
                         cselect={"Selecione o curso"}
                         ctrl={control}
                         values={courseList}
-                        defaultList={false}
+                        defaultList={true}
                     />
                 </Form.Group>
 
@@ -139,7 +155,7 @@ const AddProblems = (props) => {
                         cselect={"selecione o módulo"}
                         ctrl={control}
                         values={moduleList}
-                        defaultList={false}
+                        defaultList={true}
                     />
                 </Form.Group>
 

@@ -2,17 +2,11 @@ import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { Controller } from "react-hook-form";
 
-const Singleselect = ({ cname, values = [], ctrl, cselect, defaultList, defaultOption }) => {
+const Singleselect = ({ cname, values = [], ctrl, cselect, defaultList }) => {
   const op = values.map((value) => ({
     label: value.name,
     value: value.id
   }))
-  
-  const [df, setDf] = useState()
-
-  useEffect(()=>{
-    setDf(defaultList)
-  },[])
 
   return (
     <div>
@@ -29,7 +23,7 @@ const Singleselect = ({ cname, values = [], ctrl, cselect, defaultList, defaultO
                 onChange(op.value)
               }
               }
-              defaultValue={defaultOption}
+              defaultValue={defaultList[0]}
             />
           )
         }}

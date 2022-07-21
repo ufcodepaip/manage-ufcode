@@ -1,36 +1,28 @@
 import React, { useState, useEffect } from "react";
-import SelectMultiple from "react-select";
+import ReactSelect from "react-select";
 import { Controller } from "react-hook-form";
 
-const Multiselect = ({ cname, values = [], ctrl, cselect, defaultList, defaultOption}) => {
+const Multiselect = ({ cname, values = [], ctrl, cselect, defaultList }) => {
+
   const options = values.map((value) => ({
     label: value.name,
     value: value.id
   }))
 
-
-  const [df, setDf] = useState()
-
-  useEffect(()=>{
-    setDf(defaultList)
-  },[])
+  const [interator, setInterator] = useState(-1)
 
   return (
     <div>
       <Controller
         name={cname}
         control={ctrl}
-        render={({ field: { value, onChange } }) => {
+        render={({ field }) => {
           return (
-            <SelectMultiple
+            <ReactSelect
+              {...field}
               options={options}
               placeholder={cselect}
               isMulti={true}
-              onChange={(options) =>
-                onChange(options?.map((option) => option.value))
-              }
-              value={options.filter((option) => value?.includes(option.value))}
-              defaultValue={defaultOption}
             />
           )
         }}

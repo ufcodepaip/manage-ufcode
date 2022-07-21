@@ -18,25 +18,28 @@ const EditProblems = (props) => {
     const [defaultEvent, setDefaultEvent] = useState({})
     const [defaultDifficulty, setDefaultDifficulty] = useState({})
 
-    const item = {
+    const defaultValues = {
         name: props.problem.name,
         description: props.problem.description,
         input: props.problem.input,
         expectedOutput: props.problem.expectedOutput,
         id_house: props.problem.houseId,
         id_difficulty: props.problem.difficultyId,
-        courses: props.problem.courses,
-        modules: props.problem.modules
+        courses: props.problem.courses.map(x => (
+            { label: x.name, value: x._id }
+        )),
+        modules: props.problem.modules.map(x => (
+            { label: x.name, value: x._id }
+        ))
     }
-    console.log(item)
-
     const [problem, setProblem] = useState()
     const { handleSubmit, control, register, reset } = useForm({
-        defaultValues: item
+        defaultValues
     })
 
+
     useEffect(() => {
-        reset(item)
+        reset(defaultValues)
     }, [])
     useEffect(() => {
         getListCourses().then(res => {
@@ -63,12 +66,27 @@ const EditProblems = (props) => {
 
 
     const onSubmit = (problems) => {
-        console.log(problems)
-        /*putProblems(problems, props.problem.id).then(res => {
+
+        const coursesIds = problems.courses.map( x => x.value)
+        const modulesIds = problems.modules.map( x => x.value)
+
+        const json = {
+            name: problems.name,
+            description: problems.description,
+            input: problems.input,
+            expectedOutput: problems.expectedOutput,
+            id_house: problems.id_house,
+            id_difficulty: problems.id_difficulty,
+            courses: coursesIds,
+            modules: modulesIds
+        }
+
+
+        putProblems(json, props.problem.id).then(res => {
             alert("Sucesso!!!")
         }).catch(error => {
             console.log(error)
-        })*/
+        })
     }
 
     return (
@@ -120,8 +138,7 @@ const EditProblems = (props) => {
                         cselect={"Selecione o evento"}
                         ctrl={control}
                         values={eventList}
-                        defaultList={{ label: item.id_house.name, value: item.id_house._id }}
-                        defaultOption={true}
+                        defaultList={[{ label: defaultValues.id_house.name, defaultValues: defaultValues.id_house._id }]}
                     />
                 </Form.Group>
 
@@ -132,9 +149,7 @@ const EditProblems = (props) => {
                         cselect={"Selecione a dificuldade"}
                         ctrl={control}
                         values={difficultyList}
-                        defaultList={{ label: item.id_difficulty.name, value: item.id_difficulty._id }}
-                        defaultOption={true}
-
+                        defaultList={[{ label: defaultValues.id_difficulty.name, value: defaultValues.id_difficulty._id }]}
                     />
                 </Form.Group>
 
@@ -145,10 +160,7 @@ const EditProblems = (props) => {
                         cselect={"Selecione o curso"}
                         ctrl={control}
                         values={courseList}
-                        defaultList={item.courses.map(x => (
-                            { label: x.name, value: x._id }
-                        ))}
-                        defaultOption={true}
+                        defaultList={[defaultValues.courses]}
                     />
                 </Form.Group>
 
@@ -159,10 +171,9 @@ const EditProblems = (props) => {
                         cselect={"selecione o módulo"}
                         ctrl={control}
                         values={moduleList}
-                        defaultList={item.modules.map(x => (
+                        defaultList={[defaultValues.modules.map(x => (
                             { label: x.name, value: x._id }
-                        ))}
-                        defaultOption={true}
+                        ))]}
                     />
                 </Form.Group>
 
