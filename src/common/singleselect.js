@@ -30,7 +30,6 @@ const Singleselect = ({ cname, values = [], ctrl, cselect, defaultList, defaultO
               }
               }
               defaultValue={defaultOption}
-              value={df}
             />
           )
         }}

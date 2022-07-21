@@ -31,7 +31,6 @@ const Multiselect = ({ cname, values = [], ctrl, cselect, defaultList, defaultOp
               }
               value={options.filter((option) => value?.includes(option.value))}
               defaultValue={defaultOption}
-              value={df}
             />
           )
         }}

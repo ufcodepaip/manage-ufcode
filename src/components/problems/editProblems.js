@@ -40,6 +40,7 @@ const EditProblems = (props) => {
     }, [])
     useEffect(() => {
         getListCourses().then(res => {
+            setCourseList(res.data)
         }).catch(error => console.log(error))
     }, [])
 

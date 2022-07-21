@@ -106,7 +106,7 @@ const AddProblems = (props) => {
                         cselect={"Selecione o evento"}
                         ctrl={control}
                         values={eventList}
-                        defaultList={[]}
+                        defaultList={false}
                     />
                 </Form.Group>
 
@@ -117,7 +117,7 @@ const AddProblems = (props) => {
                         cselect={"Selecione a dificuldade"}
                         ctrl={control}
                         values={difficultyList}
-                        defaultList={[]}
+                        defaultList={false}
                     />
                 </Form.Group>
 
@@ -128,7 +128,7 @@ const AddProblems = (props) => {
                         cselect={"Selecione o curso"}
                         ctrl={control}
                         values={courseList}
-                        defaultList={[]}
+                        defaultList={false}
                     />
                 </Form.Group>
 
@@ -139,7 +139,7 @@ const AddProblems = (props) => {
                         cselect={"selecione o módulo"}
                         ctrl={control}
                         values={moduleList}
-                        defaultList={[]}
+                        defaultList={false}
                     />
                 </Form.Group>
 

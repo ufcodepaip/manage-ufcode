@@ -48,8 +48,6 @@ const ListEvents = () => {
                 </Row>
 
             </Card.Header>
-
-
             <Card.Body className="m-5 p-5">
                 <Table responsive>
                     <thead>
