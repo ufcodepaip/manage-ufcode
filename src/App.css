@@ -13,6 +13,34 @@
   }
 }
 
+.img{
+  height: 220px;
+  width: 100%;
+}
+
+
+
+td {
+  height: 50px;
+  max-width: 500px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: all ease 0.7s;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.largetext:hover {
+  height: 50px;
+  max-width: 500px;
+  overflow: auto;
+  text-overflow: ellipsis;
+  white-space: initial;
+  transition: all ease 0.7s;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +50,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.spinner-content{
+  display: flex!important;
+  justify-content: center!important;
+  width: max-content;
 }
 
 .App-link {
