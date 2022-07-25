@@ -1,10 +1,11 @@
 import axios from "axios"
+console.log(process.env)
 
 export function getListCourses() {
     return (
         axios({
             method: "GET",
-            url: "https://ufc-code.herokuapp.com/api/course",
+            url: process.env.REACT_APP_URL + "/api/course",
             headers: {
                 "token": ""
             }
@@ -12,11 +13,11 @@ export function getListCourses() {
     )
 }
 
-export function postCourse(data){
+export function postCourse(data) {
     return (
         axios({
             method: "POST",
-            url: "https://ufc-code.herokuapp.com/api/course",
+            url: process.env.REACT_APP_URL + "/api/course",
             data: data,
             headers: {
                 "token": ""
@@ -30,7 +31,7 @@ export function getListModules() {
     return (
         axios({
             method: "GET",
-            url: "https://ufc-code.herokuapp.com/api/module",
+            url: process.env.REACT_APP_URL + "/api/module",
             headers: {
                 "token": ""
             }
@@ -39,11 +40,11 @@ export function getListModules() {
 }
 
 
-export function postModule(data){
+export function postModule(data) {
     return (
         axios({
             method: "POST",
-            url: "https://ufc-code.herokuapp.com/api/module",
+            url: process.env.REACT_APP_URL + "/api/module",
             data: data,
             headers: {
                 "token": ""
@@ -56,7 +57,7 @@ export function getListEvents() {
     return (
         axios({
             method: "GET",
-            url: "https://ufc-code.herokuapp.com/api/house",
+            url: process.env.REACT_APP_URL + "/api/house",
             headers: {
                 "token": ""
             }
@@ -64,11 +65,11 @@ export function getListEvents() {
     )
 }
 
-export function postEvents(data){
+export function postEvents(data) {
     return (
         axios({
             method: "POST",
-            url: "https://ufc-code.herokuapp.com/api/house",
+            url: process.env.REACT_APP_URL + "/api/house",
             data: data,
             headers: {
                 "token": ""
@@ -89,11 +90,11 @@ export function getListProblems() {
     )
 }
 
-export function postProblems(data){
+export function postProblems(data) {
     return (
         axios({
             method: "POST",
-            url: "https://ufc-code.herokuapp.com/api/problem",
+            url: process.env.REACT_APP_URL + "/api/problem",
             data: data,
             headers: {
                 "token": ""
@@ -101,7 +102,7 @@ export function postProblems(data){
         })
     )
 }
-export function putProblems(data, id){
+export function putProblems(data, id) {
     return (
         axios({
             method: "PUT",
@@ -118,7 +119,7 @@ export function getListDifficulty() {
     return (
         axios({
             method: "GET",
-            url: "https://ufc-code.herokuapp.com/api/difficulty",
+            url: process.env.REACT_APP_URL + "/api/difficulty",
             headers: {
                 "token": ""
             }

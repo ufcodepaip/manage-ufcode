@@ -80,8 +80,7 @@ const EditProblems = (props) => {
             courses: coursesIds,
             modules: modulesIds
         }
-
-
+        
         putProblems(json, props.problem.id).then(res => {
             alert("Sucesso!!!")
         }).catch(error => {
