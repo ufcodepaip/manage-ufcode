@@ -158,7 +158,7 @@ const Kanban = () => {
                                                                 opacity: snapshot.isDragging ? '0.5' : '1'
                                                             }}
                                                         >
-                                                            <Card.Text className='p-2 text-truncate card-width'>
+                                                            <Card.Text className='p-2 fs-6 justify-text hyphens'>
                                                                 <Button onClick={() => handleShowEdit(id, task, index)} className='me-3' size="sm" variant="outline-dark">
                                                                     <i className="bi bi-three-dots-vertical"></i>
                                                                 </Button>

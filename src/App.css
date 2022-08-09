@@ -31,6 +31,7 @@ td {
   text-justify: inter-word;
 }
 
+
 .largetext:hover {
   height: 50px;
   max-width: 500px;
@@ -38,6 +39,12 @@ td {
   text-overflow: ellipsis;
   white-space: initial;
   transition: all ease 0.7s;
+}
+
+.hyphens{
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 
