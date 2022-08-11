@@ -5,6 +5,7 @@ import CoursePage from "../components/course/index"
 import EventsPage from "../components/events/index"
 import ModulePage from "../components/modules/index"
 import ProblemPage from "../components/problems/index"
+import QuizzPage from "../components/quizz/index"
 import ListSubmissions from "../components/submissions/listSubmissions"
 
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
             <Route path='/module' component={ModulePage} />
             <Route path='/events' component={EventsPage} />
             <Route path='/problems' component={ProblemPage} />
+            <Route path='/quizz' component={QuizzPage} />
             <Route path='/submissions' component={ListSubmissions} />
         </Switch>
         

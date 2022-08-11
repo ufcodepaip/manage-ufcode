@@ -1,5 +1,4 @@
 import axios from "axios"
-console.log(process.env)
 
 export function getListCourses() {
     return (
@@ -82,7 +81,7 @@ export function getListProblems() {
     return (
         axios({
             method: "GET",
-            url: `https://ufc-code.herokuapp.com/api/problem`,
+            url: process.env.REACT_APP_URL + "/api/problem",
             headers: {
                 "token": ""
             }
@@ -102,11 +101,37 @@ export function postProblems(data) {
         })
     )
 }
+
+export function getListQuizz() {
+    return (
+        axios({
+            method: "GET",
+            url: process.env.REACT_APP_URL + "/api/Quizz",
+            headers: {
+                "token": ""
+            }
+        })
+    )
+}
+
+export function postQuizz(data) {
+    return (
+        axios({
+            method: "POST",
+            url: process.env.REACT_APP_URL + "/api/Quizz",
+            data: data,
+            headers: {
+                "token": ""
+            }
+        })
+    )
+}
+
 export function putProblems(data, id) {
     return (
         axios({
             method: "PUT",
-            url: `https://ufc-code.herokuapp.com/api/problem/${id}`,
+            url: process.env.REACT_APP_URL + `/api/problem/${id}`,
             data: data,
             headers: {
                 "token": ""

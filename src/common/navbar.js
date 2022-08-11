@@ -12,6 +12,7 @@ const UfcodeNavbar = () => {
             <Nav.Link as={Link} to="/course">Cursos</Nav.Link>
             <Nav.Link as={Link} to="/module">Modulos</Nav.Link>
             <Nav.Link as={Link} to="/events">Eventos</Nav.Link>
+            <Nav.Link as={Link} to="/quizz">Quizz</Nav.Link>
             <Nav.Link as={Link} to="/problems">Problemas</Nav.Link>
             <Nav.Link as={Link} to="/submissions">Submissões</Nav.Link>
           </Nav>
