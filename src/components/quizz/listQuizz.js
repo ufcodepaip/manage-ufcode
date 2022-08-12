@@ -60,6 +60,7 @@ const ListQuizz = () => {
                             <th>Opção 3</th>
                             <th>Opção 4</th>
                             <th>Opção Correta</th>
+                            <th>Módulo</th>
                         </tr>
                     </thead>
                     {<tbody>
@@ -74,11 +75,11 @@ const ListQuizz = () => {
                                     </td>
                                     <td className="largetext">{quizz.description}</td>
                                     <td key={quizz.id}>{quizz.option_one}</td>
-                                    <td key={quizz.id}>{quizz.option_two}</td>
-                                    <td key={quizz.id}>{quizz.option_three}</td>
-                                    <td key={quizz.id}>{quizz.option_four}</td>
-                                    <td key={quizz.id}>{quizz.option_correct}</td>
-
+                                    <td>{quizz.option_two}</td>
+                                    <td>{quizz.option_three}</td>
+                                    <td>{quizz.option_four}</td>
+                                    <td>{quizz.option_correct}</td>
+                                    <td>{quizz.modules.name}</td>
                                 </tr>)
                         })}
                     </tbody>}

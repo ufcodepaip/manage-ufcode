@@ -1,12 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Card, Form, Col, Button, Row, Modal } from "react-bootstrap"
-import { postQuizz } from "../../api/axios"
+import { postQuizz, getListModules } from "../../api/axios"
 import { useForm } from 'react-hook-form'
 import MyImage from "../map1.png"
 import Singleselect from "../../common/singleselect"
 
 const AddEvents = (props) => {
     const { register, control, handleSubmit } = useForm()
+    const [moduleList, setModuleList] = useState([])
+
+    useEffect(() => {
+        getListModules().then(res => {
+            setModuleList(res.data)
+        }).catch(error => console.log(error))
+    }, [])
 
     const onSubmit = (quizz) => {
 
@@ -95,6 +102,17 @@ const AddEvents = (props) => {
                             defaultList={false}
                         />
                     </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEvents">
+                        <Form.Label>Opção Correta</Form.Label>
+                        <Singleselect
+                            cname={"modules"}
+                            cselect={"Selecione o modulo"}
+                            ctrl={control}
+                            values={moduleList}
+                            defaultList={false}
+                        />
+                    </Form.Group>
+
                     <Modal.Footer>
                         <Button variant="success" className="rounded m-1 p-md" type="submit">
                             Cadastrar
