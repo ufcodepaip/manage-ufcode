@@ -13,7 +13,7 @@ const AddModule = (props) => {
         }).catch(error => {
             alert(error)
         })
-
+        props.close()
     }
 
     return (

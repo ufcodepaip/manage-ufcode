@@ -13,7 +13,7 @@ const AddCourse = (props) => {
         }).catch(error => {
             alert(error)
         })
-
+        props.close()
     }
 
     return (

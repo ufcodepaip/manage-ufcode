@@ -16,14 +16,14 @@ const ListCourse = () => {
     const currentItem = courseList.slice(indexOfFirstItem, indexOfLastItem)
 
     const [show, setShow] = useState(false);
-    function handleClose() { setShow(false) };
+    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     useEffect(() => {
         getListCourses().then(res => {
             setCourseList(res.data)
         }).catch(error => console.log(error))
-    }, [])
+    }, [show])
 
     const handleEditCourse = (course) => {
         setCourseName(course.name)
@@ -37,7 +37,7 @@ const ListCourse = () => {
 
         <Col>
             <Card.Header className="fs-1">
-            <Row>
+                <Row>
                     <Col>
                         Lista de Áreas
                     </Col>

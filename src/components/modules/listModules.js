@@ -24,7 +24,7 @@ const ListModule = () => {
         getListModules().then(res => {
             setModuleList(res.data)
         }).catch(error => console.log(error))
-    }, [])
+    }, [show])
 
     const handleEditModule = (modules) => {
         setModuleName(modules.name)

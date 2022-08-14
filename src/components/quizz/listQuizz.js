@@ -25,7 +25,7 @@ const ListQuizz = () => {
         getListQuizz().then(res => {
             setQuizzList(res.data)
         }).catch(error => console.log(error))
-    }, [])
+    }, [show])
 
     const handleEditQuizz = (quizz) => {
         console.log(quizz.id)

@@ -39,7 +39,7 @@ const AddEvents = (props) => {
         }).catch(error => {
             alert(error)
         })
-
+        props.close()
     }
 
     return (

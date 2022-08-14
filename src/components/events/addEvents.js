@@ -16,7 +16,7 @@ const AddEvents = (props) => {
         }).catch(error => {
             alert(error)
         })
-
+        props.close()
     }
 
     const handleClick = (event) => {

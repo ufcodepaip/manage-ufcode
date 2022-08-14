@@ -86,6 +86,7 @@ const EditProblems = (props) => {
         }).catch(error => {
             console.log(error)
         })
+        props.close()
     }
 
     return (

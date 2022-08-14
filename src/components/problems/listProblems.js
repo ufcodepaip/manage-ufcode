@@ -31,7 +31,7 @@ const ListProblems = () => {
         getListProblems().then(res => {
             setProblemList(res.data)
         }).catch(error => console.log(error))
-    }, [])
+    }, [show])
 
     const handleEditProblem = (problem) => {
         setProblem(problem)

@@ -24,7 +24,7 @@ const ListEvents = () => {
         getListEvents().then(res => {
             setEventsList(res.data)
         }).catch(error => console.log(error))
-    }, [])
+    }, [show])
 
     const handleEditEvents = (events) => {
         console.log(events.id)

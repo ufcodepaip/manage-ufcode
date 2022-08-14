@@ -64,7 +64,7 @@ const AddProblems = (props) => {
         }).catch(error => {
             alert(error)
         })
-
+        props.close()
     }
 
     const opt = [
